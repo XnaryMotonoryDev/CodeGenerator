@@ -1,39 +1,21 @@
 import flet as ft
 
-from setting import *
-
+from settings import *
+from Utils.utils import Utils
+from Utils.menus import main_menu
 
 def app(page: ft.Page):
     page.theme_mode = 'dark'
     page.title = "code generator"
+    page.navigation_bar = nav_bar
 
-    def generate(e):
-        code = f"{dropdown_type.value} {name_type.value} = {value.value}"
+    util = Utils(page)
 
-        code_text.value = code
-        page.update()
+    nav_bar.on_change = util.navigate_handler
+    checkbox_theme.on_change = util.theme_handler
+    btn_g.on_click = util.generate_handler
 
-    btn_g = ft.Button(text="Generate", on_click=generate)
-
-    page.add(ft.Row(
-        [
-            dropdown_type,
-            name_type,
-            value
-        ], alignment=ft.MainAxisAlignment.CENTER
-    ))
-
-    page.add(ft.Row(
-        [
-            btn_g
-        ], alignment=ft.MainAxisAlignment.CENTER
-    ))
-
-    page.add(ft.Row(
-        [
-            code_container
-        ], alignment=ft.MainAxisAlignment.CENTER
-    ))
+    page.add(main_menu)
 
 
 ft.app(target=app)
