@@ -11,7 +11,7 @@ class Utils:
         self.page = page
         self.navigate_handler = partial(self.__navigate)
         self.theme_handler = partial(self.__change_theme)
-        self.generate_handler =partial(self.__generate)
+        self.generate_handler = partial(self.__generate)
 
     def is_empty(self, controls: List[Union[ft.Control]]) -> bool:
         for control in controls:
@@ -50,6 +50,7 @@ class Utils:
         
         code = f"{dropdown_type.value} {name_type.value} = {value.value};"
         self.clear([dropdown_type, name_type, value])
+        print(code)
 
         code_text.value = code
         self.page.update()
