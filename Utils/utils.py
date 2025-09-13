@@ -49,6 +49,7 @@ class Utils:
             return
         
         code = f"{dropdown_type.value} {name_type.value} = {value.value};"
+        print(code)
         self.clear([dropdown_type, name_type, value])
 
         code_text.value = code

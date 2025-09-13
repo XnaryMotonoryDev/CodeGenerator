@@ -11,8 +11,8 @@ border_radius = ft.BorderRadius(radius, radius, radius, radius)
 border = ft.Border(ft.BorderSide(1), ft.BorderSide(1), ft.BorderSide(1), ft.BorderSide(1))
 
 dropdown_type = ft.Dropdown(options=options_type)
-name_type = ft.TextField()
-value = ft.TextField()
+name_type = ft.TextField(hint_text="Enter the name")
+value = ft.TextField(hint_text="Enter the value")
 btn_g = ft.Button(text="Generate")
 
 code_text = ft.Text()
